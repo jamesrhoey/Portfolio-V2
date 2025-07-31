@@ -12,7 +12,7 @@ const projects = [
     image: downloadImg,
     description: "A full-stack web application designed for efficient order, product, and transaction management. The system features secure user authentication, an admin dashboard, product and order tracking, transaction history, and a profile management section with password change functionality. Built with Node.js, Express, MongoDB, and a modern Bootstrap frontend, this project showcases practical CRUD operations, responsive UI, and real-world business logic for small to medium enterprises.",
     tech: ["Node.js", "Express", "MongoDB", "Bootstrap"],
-    link: "https://glistening-cannoli-3f7d6b.netlify.app",
+    link: "https://dulcet-medovik-ce5d3f.netlify.app",
     featured: true,
   },
 ];

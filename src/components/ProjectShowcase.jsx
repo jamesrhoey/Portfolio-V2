@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const accentColor = "#ff5f6d";
 const accentColor2 = "#ffc371";
 const accentColor3 = "#36d1c4";
+import downloadImg from "../assets/download.jpg";
 
 const projects = [
   {
@@ -20,6 +21,14 @@ const projects = [
     description: "A live project hosted online. [Replace with your description]",
     tech: ["React", "Node.js", "MongoDB"],
     link: "https://github.com/your-repo",
+    featured: false,
+  },
+  {
+    title: "Simple Serve",
+    image: downloadImg,
+    description: "A full-stack web application designed for efficient order, product, and transaction management. The system features secure user authentication, an admin dashboard, product and order tracking, transaction history, and a profile management section with password change functionality. Built with Node.js, Express, MongoDB, and a modern Bootstrap frontend, this project showcases practical CRUD operations, responsive UI, and real-world business logic for small to medium enterprises.",
+    tech: ["Node.js", "Express", "MongoDB", "Bootstrap"],
+    link: "https://glistening-cannoli-3f7d6b.netlify.app",
     featured: false,
   },
   {
@@ -56,7 +65,7 @@ export default function ProjectShowcase() {
         {projects.map((project, i) => (
           <motion.div
             key={i}
-            className={`group relative rounded-3xl shadow-2xl overflow-hidden border-2 border-white/10 hover:border-[${accentColor}] transition-all duration-300 ${project.featured ? 'ring-4 ring-[${accentColor2}]' : ''}`}
+            className={`group relative rounded-3xl shadow-2xl overflow-hidden border-2 border-white/10 hover:border-[${accentColor}] transition-all duration-300 ${project.featured ? 'ring-4 ring-[${accentColor2}]' : ''} h-[500px] flex flex-col`}
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
@@ -74,9 +83,9 @@ export default function ProjectShowcase() {
                 <span className="absolute top-3 right-3 bg-gradient-to-r from-[#36d1c4] to-[#ff5f6d] text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg tracking-wider">FEATURED</span>
               )}
             </div>
-            <div className="p-8">
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="text-2xl font-black mb-2 text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, ${accentColor}, ${accentColor3})` }}>{project.title}</h3>
-              <p className="text-gray-100 mb-4 min-h-[48px]">{project.description}</p>
+              <p className="text-gray-100 mb-4 flex-1 overflow-auto max-h-24">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((t, j) => (
                   <span key={j} className="rounded-full px-4 py-1 font-semibold text-xs shadow" style={{ background: `linear-gradient(90deg, ${accentColor3}33, ${accentColor2}33)`, color: accentColor3, border: `1.5px solid ${accentColor2}` }}>{t}</span>

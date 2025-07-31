@@ -6,7 +6,15 @@ const accentColor2 = "#ffc371";
 const accentColor3 = "#36d1c4";
 
 const skills = [
-  "JavaScript", "Python", "C#", "React", "Node.js", "Django", ".NET", "SQL", "MongoDB", "REST APIs"
+  { name: "React", logo: "/logos/react.svg" },
+  { name: "Node.js", logo: "/logos/nodejs.svg" },
+  { name: "MongoDB", logo: "/logos/mongodb.svg" },
+  { name: "Flutter", logo: "/logos/flutter.svg" },
+  { name: "Express.js", logo: "/logos/express.svg" },
+  { name: "HTML", logo: "/logos/html.svg" },
+  { name: "CSS", logo: "/logos/css.svg" },
+  { name: "Bootstrap", logo: "/logos/bootstrap.svg" },
+  { name: "Vue", logo: "/logos/vue.svg" }
 ];
 
 export default function SkillsGrid() {
@@ -27,13 +35,13 @@ export default function SkillsGrid() {
         viewport={{ once: true }}
         transition={{ duration: 1.1, delay: 0.2 }}
       >
-        Skills & Services
+        Technologies
       </motion.h2>
       <div className="flex flex-wrap gap-5 justify-center md:justify-start">
         {skills.map((skill, i) => (
           <motion.span
             key={i}
-            className="px-8 py-4 rounded-full font-bold text-lg shadow-xl tracking-wide"
+            className="px-8 py-4 rounded-full font-bold text-lg shadow-xl tracking-wide flex items-center gap-3"
             style={{
               background: `linear-gradient(90deg, ${accentColor3}33, ${accentColor2}33, ${accentColor}33)`,
               color: accentColor3,
@@ -45,7 +53,8 @@ export default function SkillsGrid() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.18 + i * 0.08 }}
           >
-            {skill}
+            <img src={skill.logo} alt={skill.name + ' logo'} className="w-7 h-7 mr-2" />
+            {skill.name}
           </motion.span>
         ))}
       </div>

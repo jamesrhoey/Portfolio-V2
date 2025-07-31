@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-accent: #ff5f6d;
+  --color-accent2: #ffc371;
+  --color-accent3: #36d1c4;
+  --color-bg-dark: #23243e;
+  --color-bg-light: #2c5364;
+  --color-text-main: #f7f7fa;
+  --color-text-subtle: #c7c7d1;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-light) 100%);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(35, 36, 62, 0.7);
+  box-shadow: 0 8px 48px 0 rgba(36,36,62,0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 2rem;
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent3);
+  border-radius: 8px;
+}

@@ -8,36 +8,12 @@ import downloadImg from "../assets/download.jpg";
 
 const projects = [
   {
-    title: "Local Project 1",
-    image: "/vite.svg",
-    description: "A local project with advanced features. [Replace with your description]",
-    tech: ["Python", "Django", "PostgreSQL"],
-    link: null,
-    featured: true,
-  },
-  {
-    title: "Online Project",
-    image: "/vite.svg",
-    description: "A live project hosted online. [Replace with your description]",
-    tech: ["React", "Node.js", "MongoDB"],
-    link: "https://github.com/your-repo",
-    featured: false,
-  },
-  {
     title: "Simple Serve",
     image: downloadImg,
     description: "A full-stack web application designed for efficient order, product, and transaction management. The system features secure user authentication, an admin dashboard, product and order tracking, transaction history, and a profile management section with password change functionality. Built with Node.js, Express, MongoDB, and a modern Bootstrap frontend, this project showcases practical CRUD operations, responsive UI, and real-world business logic for small to medium enterprises.",
     tech: ["Node.js", "Express", "MongoDB", "Bootstrap"],
     link: "https://glistening-cannoli-3f7d6b.netlify.app",
-    featured: false,
-  },
-  {
-    title: "Local Project 2",
-    image: "/vite.svg",
-    description: "Another local project. [Replace with your description]",
-    tech: ["C#", ".NET", "SQL Server"],
-    link: null,
-    featured: false,
+    featured: true,
   },
 ];
 

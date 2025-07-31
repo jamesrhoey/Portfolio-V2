@@ -34,8 +34,8 @@ export default function AboutSection() {
       >
         <div className="absolute -top-12 -left-12 w-48 h-48 rounded-full" style={{ background: `radial-gradient(circle, ${accentColor2}33, transparent 70%)`, filter: "blur(32px)" }} />
         <p>
-          I am a <span style={{ color: accentColor }}>creative</span> and <span style={{ color: accentColor3 }}>client-focused</span> full stack developer who loves blending <span style={{ color: accentColor2 }}>design</span> and <span style={{ color: accentColor3 }}>technology</span> to craft unforgettable digital experiences.<br /><br />
-          My mission is to help your business stand out online with beautiful, high-performance web apps. Let’s collaborate to turn your ideas into reality!
+          I am a passionate and results-driven full stack developer with experience in designing, developing, and deploying robust web applications. My expertise spans both front-end and back-end technologies, including React, Node.js, Express, MongoDB, and Bootstrap.<br /><br />
+          I enjoy solving complex problems and transforming ideas into scalable, user-friendly solutions. I am committed to writing clean, maintainable code and continuously learning new technologies to stay current in the fast-evolving world of web development.
         </p>
       </motion.div>
     </motion.section>

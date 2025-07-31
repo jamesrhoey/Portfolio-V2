@@ -51,7 +51,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1 }}
-        className="relative"
+        className="relative md:ml-40"
       >
         <motion.div
           animate={{
@@ -97,7 +97,7 @@ export default function HeroSection() {
           className="text-2xl md:text-3xl font-semibold mb-4 tracking-wide"
           style={{ color: accentColor2 }}
         >
-          Full Stack Developer
+          Just Building Cool Stuff
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -105,7 +105,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 1 }}
           className="text-lg text-gray-100 mb-8 max-w-xl"
         >
-          I design and build visually stunning, high-performance web apps that attract clients and deliver results. Let’s make your next project unforgettable.
+          I love making things work on the web sometimes with a lot of coffee. Check out my projects or let’s connect!
         </motion.p>
         <motion.a
           href="#contact"

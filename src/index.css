@@ -3,95 +3,62 @@
 @tailwind utilities;
 
 :root {
-  --color-accent: #ff5f6d;
-  --color-accent2: #ffc371;
-  --color-accent3: #36d1c4;
-  --color-bg-dark: #23243e;
-  --color-bg-light: #2c5364;
-  --color-text-main: #f7f7fa;
-  --color-text-subtle: #c7c7d1;
+  --color-primary: #3a86ff;
+  --color-secondary: #8338ec;
+  --color-accent: #ff006e;
+  --color-dark: #0a192f;
+  --color-light: #ccd6f6;
+  --color-text: #e6f1ff;
 }
 
-body {
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-light) 100%);
-  color: var(--color-text-main);
-  min-height: 100vh;
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--color-dark)] text-[var(--color-text)] font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply font-bold;
+  }
 }
 
-/* Glassmorphism utility */
-.glass {
-  background: rgba(35, 36, 62, 0.7);
-  box-shadow: 0 8px 48px 0 rgba(36,36,62,0.15);
-  backdrop-filter: blur(16px);
-  border-radius: 2rem;
-  border: 1.5px solid rgba(255,255,255,0.08);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[var(--color-dark)];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)] rounded-full;
 }
 
 /* Animation utilities */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeInUp {
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  background: var(--color-bg-dark);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-accent3);
-  border-radius: 8px;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 640px) {
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  h1, h2 {
-    font-size: 2.5rem;
-  }
-  
-  button, a[role="button"] {
-    width: 100%;
-    text-align: center;
-  }
-  
-  input, textarea {
-    padding: 0.75rem;
-    font-size: 1rem;
-  }
+/* Glassmorphism effect */
+.glass-card {
+  @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-xl;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Prevent text overflow */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-/* Better touch targets */
-button, a {
-  min-height: 44px;
-  min-width: 44px;
-}
-
-/* Remove tap highlight on mobile */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
 }

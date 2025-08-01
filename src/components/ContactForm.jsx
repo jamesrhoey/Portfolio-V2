@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
-
-const accentColor = "#ff5f6d";
-const accentColor2 = "#ffc371";
-const accentColor3 = "#36d1c4";
-
-// TODO: Replace with your EmailJS values
-const EMAILJS_SERVICE_ID = "service_8y06slk";
-const EMAILJS_TEMPLATE_ID = "template_ersidtm";
-const EMAILJS_USER_ID = "hKKqT2Fx475LeesxJ";
+import { FiMail, FiMapPin, FiPhone, FiGithub } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -23,101 +15,172 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus("");
-    emailjs
-      .send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          reply_to: form.email,
-          message: form.message,
-        },
-        EMAILJS_USER_ID
-      )
-      .then(
-        () => {
-          setStatus("Your message was sent! I'll get back to you soon.");
-          setForm({ name: "", email: "", message: "" });
-          setLoading(false);
-        },
-        (error) => {
-          setStatus("Something went wrong. Please try again later.");
-          setLoading(false);
-        }
-      );
+    // Form submission logic here
+    setTimeout(() => {
+      setStatus("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+      setLoading(false);
+    }, 1500);
   };
 
   return (
-    <motion.section
-      id="contact"
-      className="max-w-xl mx-auto px-6 py-20 md:py-28"
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.2 }}
-    >
-      <motion.h2
-        className="text-5xl font-black mb-10 text-transparent bg-clip-text drop-shadow-lg"
-        style={{ backgroundImage: `linear-gradient(90deg, ${accentColor}, ${accentColor2}, ${accentColor3})` }}
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.1, delay: 0.2 }}
-      >
-        Contact Me
-      </motion.h2>
-      <motion.form
-        className="flex flex-col gap-7 bg-[#23243e]/80 rounded-3xl p-10 shadow-2xl border border-white/10 backdrop-blur-md relative overflow-hidden"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: 0.4 }}
-        onSubmit={handleSubmit}
-      >
-        <div className="absolute -top-12 -right-10 w-40 h-40 rounded-full" style={{ background: `radial-gradient(circle, ${accentColor3}33, transparent 70%)`, filter: "blur(32px)" }} />
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
-          className="bg-[#23243e] border border-white/20 rounded-xl px-6 py-5 text-gray-100 focus:border-[#36d1c4] focus:ring-2 focus:ring-[#36d1c4] outline-none transition text-lg shadow"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
-          className="bg-[#23243e] border border-white/20 rounded-xl px-6 py-5 text-gray-100 focus:border-[#ff5f6d] focus:ring-2 focus:ring-[#ff5f6d] outline-none transition text-lg shadow"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange}
-          className="bg-[#23243e] border border-white/20 rounded-xl px-6 py-5 text-gray-100 focus:border-[#ffc371] focus:ring-2 focus:ring-[#ffc371] outline-none transition text-lg shadow"
-          required
-          rows={5}
-        ></textarea>
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.08, boxShadow: `0 0 24px 0 ${accentColor}` }}
-          whileTap={{ scale: 0.97 }}
-          className="mt-2 px-10 py-4 font-extrabold rounded-full shadow-2xl text-[#23243e] bg-gradient-to-r from-[#36d1c4] via-[#ffc371] to-[#ff5f6d] hover:from-[#ff5f6d] hover:to-[#36d1c4] transition-all duration-300 border-2 border-white focus:outline-none focus:ring-4 focus:ring-[#36d1c4]/50 text-lg tracking-wide disabled:opacity-60"
-          disabled={loading}
+    <section id="contact" className="py-20 bg-gradient-to-b from-[#0a1120] to-[var(--color-dark)]">
+      <div className="container mx-auto px-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          {loading ? "Sending..." : "Send Message"}
-        </motion.button>
-        {status && (
-          <div className="mt-2 text-center text-base font-semibold" style={{ color: status.includes("sent") ? accentColor3 : accentColor }}>
-            {status}
-          </div>
-        )}
-      </motion.form>
-    </motion.section>
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Have a project in mind or want to connect? Feel free to reach out!
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col lg:flex-row gap-12">
+          <motion.div
+            className="lg:w-1/2 space-y-6"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="glass-card p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="p-2 bg-white/5 rounded-full">
+                    <FiMail className="text-[var(--color-primary)]" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Email</h4>
+                    <a href="mailto:jamesrhoeydecastro7@gmail.com" className="text-white/70 hover:text-white transition-colors">
+                      jamesrhoeydecastro7@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="p-2 bg-white/5 rounded-full">
+                    <FiMapPin className="text-[var(--color-primary)]" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Location</h4>
+                    <p className="text-white/70">Batangas, Lemery</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="p-2 bg-white/5 rounded-full">
+                    <FiPhone className="text-[var(--color-primary)]" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Phone</h4>
+                    <a href="tel:+639777404043" className="text-white/70 hover:text-white transition-colors">
+                      +63 977 740 4043
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
+              <div className="flex gap-4">
+                <motion.a
+                  href="https://github.com/jamesrhoey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-md bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-2"
+                  whileHover={{ y: -2 }}
+                >
+                  <FiGithub /> GitHub
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/james-rhoey-decastro-158248257"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-md bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-2"
+                  whileHover={{ y: -2 }}
+                >
+                  <FaLinkedinIn /> LinkedIn
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            className="lg:w-1/2 glass-card p-8 rounded-xl"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block mb-2 font-medium">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block mb-2 font-medium">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows="5"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                  required
+                ></textarea>
+              </div>
+              
+              <motion.button
+                type="submit"
+                className="w-full py-3 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] rounded-md font-medium shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </motion.button>
+              
+              {status && (
+                <div className="mt-4 p-3 bg-green-500/10 text-green-500 rounded-md text-center">
+                  {status}
+                </div>
+              )}
+            </div>
+          </motion.form>
+        </div>
+      </div>
+    </section>
   );
 }

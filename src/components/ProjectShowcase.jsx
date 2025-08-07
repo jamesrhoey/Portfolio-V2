@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import downloadImg from "../assets/download.jpg";
+import skConnectImage from "../assets/FB_IMG_1754390134164.jpg";
 
 const projects = [
   {
@@ -12,6 +13,15 @@ const projects = [
     github: "https://github.com",
     featured: true,
     image: downloadImg
+  },
+  {
+    title: "SK Connect V2",
+    description: "Modern social media platform with real-time interactions and user engagement features.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
+    link: "https://sk-connect-v2-ddshzc3cn-rhoeyjames-projects.vercel.app/",
+    github: "https://github.com",
+    featured: true,
+    image: skConnectImage
   },
   // Add more projects...
 ];

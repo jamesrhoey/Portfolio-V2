@@ -18,7 +18,7 @@ const projects = [
     title: "SK Connect V2",
     description: "Modern social media platform with real-time interactions and user engagement features.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
-    link: "https://sk-connect-v2-ddshzc3cn-rhoeyjames-projects.vercel.app/",
+    link: "https://sk-connect-v3.vercel.app/",
     github: "https://github.com",
     featured: true,
     image: skConnectImage

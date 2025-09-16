@@ -5,6 +5,7 @@ import ProjectShowcase from "./components/ProjectShowcase";
 import SkillsGrid from "./components/SkillsGrid";
 import AboutSection from "./components/AboutSection";
 import ContactForm from "./components/ContactForm";
+import CertificationsSection from "./components/Certification"; // Add this import
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
           </motion.a>
           
           <ul className="hidden md:flex items-center gap-8">
-            {['Projects', 'Skills', 'About', 'Contact'].map((item, i) => (
+            {['Projects', 'Skills', 'About', 'Certifications', 'Contact'].map((item, i) => ( // Added Certifications
               <motion.li key={i} whileHover={{ y: -2 }}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -62,6 +63,7 @@ export default function App() {
         <ProjectShowcase />
         <SkillsGrid />
         <AboutSection />
+        <CertificationsSection /> {/* Add this line */}
         <ContactForm />
       </main>
 
